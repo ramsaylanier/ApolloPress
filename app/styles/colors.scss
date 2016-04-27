@@ -1,0 +1,27 @@
+@import "vars";
+
+.primary_background{
+  background-color: $primary;
+}
+
+.dark_background{
+  background-color: $dark;
+}
+
+.primary{
+  color: $primary;
+}
+
+.primary_hover{
+  &:hover{
+    color: $primary;
+  }
+}
+
+.secondary{
+  color: $secondary;
+}
+
+.dark{
+  color: $dark;
+}

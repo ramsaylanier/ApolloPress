@@ -1,0 +1,23 @@
+.base{
+  composes: dark_background from "../../styles.scss";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  z-index: 900;
+}
+
+.wrapper{
+  composes: main from "../../styles.scss";
+  composes: container align_center items_center space_between from "../../styles.scss";
+}
+
+.brand{
+  height: 100%;
+}
+
+.title{
+  color: white;
+  align-self: center;
+}

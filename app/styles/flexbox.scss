@@ -1,0 +1,31 @@
+.container{
+  display: flex;
+}
+
+.child_1{
+  flex: 1;
+}
+
+.justify_center{
+  justify-content: center;
+}
+
+.align_center{
+  align-content: center;
+}
+
+.items_center{
+  align-items: center;
+}
+
+.self_center{
+  align-self: center;
+}
+
+.space_around{
+  justify-content: space-around;
+}
+
+.space_between{
+  justify-content: space-between;
+}

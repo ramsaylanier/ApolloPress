@@ -1,0 +1,21 @@
+@import "./styles/reset";
+@import "./styles/vars";
+@import "./styles/typography";
+@import "./styles/colors";
+@import "./styles/wrapper";
+@import "./styles/flexbox";
+@import "./styles/background";
+@import "./styles/images";
+@import "./styles/z-index";
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: darken(white, 10%);
+}
+
+a{
+  text-decoration: none;
+}

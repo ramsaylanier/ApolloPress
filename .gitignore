@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+dist
+*.log
+coverage
+wordpress
+settings/prod.json
+scripts/deploy.sh

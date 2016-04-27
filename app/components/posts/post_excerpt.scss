@@ -1,0 +1,64 @@
+@import "../../styles/vars";
+
+.base{
+  composes: container from "../../styles.scss";
+  position: relative;
+  margin-bottom: 1rem;
+
+  &:before{
+    content: '';
+    background-color: fade-out($dark, .5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .2;
+    transition: opacity 150ms ease-out;
+    z-index: 1;
+  }
+
+  &:hover{
+    &:before{
+      opacity: 1;
+    }
+
+    .title, .text{
+      color: white;
+    }
+
+    .info{
+      background-color: fade-out($dark, .5);
+    }
+  }
+
+  &:first-of-type{
+    margin-top: 1rem;
+  }
+}
+
+.info{
+  composes: child_1 from "../../styles.scss";
+  background-color: white;
+  position: relative;
+  padding: 2rem;
+  transition: background 150ms ease-out;
+  z-index: 2;
+}
+
+.title{
+  font-size: 2rem;
+  margin-top: 0rem;
+  transition: color 150ms ease-out;
+}
+
+.text{
+  composes: dark from "../../styles.scss";
+  font-size: 1.3rem;
+  transition: color 150ms ease-out;
+}
+
+.thumbnail{
+  composes: child_1 from "../../styles.scss";
+  composes: cover center from "../../styles.scss";
+}

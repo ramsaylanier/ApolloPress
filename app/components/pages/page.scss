@@ -1,0 +1,64 @@
+@import "../../styles/vars";
+
+.base{
+	min-height: 100vh;
+	opacity: 0;
+	transition: opacity 300ms ease-out;
+	padding-top: 4rem;
+}
+
+.wrapper{
+	composes: main from '../../styles.scss';
+	z-index: 2;
+
+	&.tight{
+		max-width: 750px;
+	}
+}
+
+.hero{
+	composes: primary_background from '../../styles.scss';
+	composes: cover center from '../../styles.scss';
+	padding: 4rem 0rem;
+  position: relative;
+
+	z-index: 1;
+}
+
+.hero_thumbnail{
+	composes: hero;
+}
+
+.hero_thumbnail::after{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: fade-out($secondary, .1);
+}
+
+.title{
+	color: white;
+	margin: 0;
+}
+
+.subtitle{
+	color: white;
+	margin: 0;
+}
+
+.thumbnail{
+	composes: cover from '../../styles.scss';
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.content{
+	background-color: white;
+	padding: 2rem 0rem;
+}

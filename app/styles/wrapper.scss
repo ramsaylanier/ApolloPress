@@ -1,0 +1,13 @@
+.main{
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+	position: relative;
+	width: 95%;
+	max-width: 900px;
+}
+
+.tight{
+	composes: main;
+	max-width: 750px;
+}

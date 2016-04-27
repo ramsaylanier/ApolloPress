@@ -1,0 +1,101 @@
+@import "../../styles/vars";
+
+.base{
+  min-height: 100vh;
+}
+
+.header{
+  composes: cover center from "../../styles/background.scss";
+  position: relative;
+  padding: 3rem;
+  min-height: 400px;
+  z-index: 1;
+
+
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: fade-out($dark, .3);
+  }
+}
+
+.thumbnail{
+  composes: child_1 from "../../styles/flexbox.scss";
+  composes: cover center from "../../styles/background.scss";
+}
+
+.main{
+  padding: 2rem;
+  background-color: white;
+  font-size: 1.2rem;
+
+  .content{
+    padding: 0rem 2rem;
+  }
+}
+
+.content{
+
+  p{
+    font-size: 1.2rem;
+  }
+
+  pre{
+    p{
+      color: black;
+      font-size: .9rem;
+      margin: 0;
+    }
+  }
+
+  a{
+    color: $secondary;
+    border-bottom: 1px solid currentColor;
+    line-height: 0;
+    transition: color 150ms ease-out;
+
+    &:hover{
+      color: $primary;
+    }
+  }
+
+  .alignleft{
+    float: left;
+    margin-right: 1.5rem;
+  }
+
+  img{
+    max-width: 100%;
+    height: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  figure{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    img{
+      margin: 0;
+    }
+  }
+}
+
+.wrapper{
+  composes: main from "../../styles/wrapper.scss";
+  position: relative;
+  background-color: white;
+  top: -10rem;
+  z-index: 20;
+}
+
+.title{
+  padding: 2rem;
+  font-size: 3em;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0px -100px 100px -30px fade-out($dark, .7);
+}

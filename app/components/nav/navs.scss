@@ -1,0 +1,77 @@
+@import '../../styles/vars';
+
+.nav{
+  display: flex;
+  align-items: center;
+}
+
+.list{
+  display: flex;
+  height: 100%;
+}
+
+.subnav{
+  position: absolute;
+	top: 4rem;
+	right: 0;
+	transition: transform 0ms ease-out 300ms, opacity 300ms ease-out;
+
+	&:hover{
+		transform: rotateX(0deg);
+		transition: transform 0ms ease-out 0ms, opacity 150ms ease-out;
+	}
+
+  .list{
+    flex-wrap: wrap;
+  }
+
+	.item{
+    background-color: $primary;
+    width: 100%;
+		padding: .5rem;
+	}
+}
+
+.item{
+  align-items: center;
+  display: flex;
+  position: relative;
+	padding: 0rem;
+  margin-right: 1rem;
+}
+
+.link{
+  composes: sans from '../../styles.scss';
+  color: white;
+	display: block;
+	height: 100%;
+	align-items: center;
+
+  &:hover{
+    color: $primary;
+  }
+}
+
+.primary{
+  composes: nav;
+  height: 100%;
+  align-self: flex-end;
+
+  .item{
+		&:hover{
+			opacity: 1;
+
+			.subnav{
+				transition: transform 0ms ease-out 0ms, opacity 300ms ease-out;
+				transform: rotateX(0deg);
+				opacity: 1;
+			}
+		}
+  }
+
+  .subnav{
+    transition: transform 0ms ease-out 300ms, opacity 150ms ease-out;
+		transform: rotateX(90deg);
+		opacity: 0;
+  }
+}
