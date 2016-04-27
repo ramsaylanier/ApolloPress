@@ -99,6 +99,7 @@
     "php-unserialize": "0.0.1",
     "prerender-node": "^2.2.0",
     "react": "^0.14.5",
+    "react-apollo": "^0.1.6",
     "react-css-modules": "^3.6.4",
     "react-dom": "^0.14.5",
     "react-helmet": "^2.3.1",

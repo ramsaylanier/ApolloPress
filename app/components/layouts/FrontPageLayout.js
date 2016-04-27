@@ -31,7 +31,7 @@ class FrontPageLayout extends React.Component{
 		)
 	}
 }
-
+ 
 export default Relay.createContainer(FrontPageLayout, {
   fragments: {
     viewer: () => Relay.QL`

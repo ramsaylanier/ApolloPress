@@ -1,12 +1,24 @@
 import 'babel-polyfill';
 import '../scripts/scrollToPlugin.js';
-import { browserHistory } from 'react-router';
 import React from 'react';
 import { render } from 'react-dom';
-import { RelayRouter } from 'react-router-relay';
+// import { RelayRouter } from 'react-router-relay';
+import { Provider } from 'react-apollo';
+import { client } from './apollo';
+
+import {
+  Router,
+  Route,
+  Link,
+  browserHistory,
+  IndexRedirect,
+} from 'react-router';
+
 import routes from './routes';
 
 render(
-  <RelayRouter history={browserHistory} routes={routes} />,
+  <Provider client={client}>
+    <Router history={browserHistory} routes={routes}></Router>
+  </Provider>,
   document.getElementById('root')
 )
