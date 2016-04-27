@@ -78,6 +78,7 @@
     }
   },
   "dependencies": {
+    "apollo-client": "^0.1.6",
     "babel-polyfill": "^6.3.14",
     "dotenv": "^1.2.0",
     "ejs": "^2.4.1",
@@ -87,6 +88,7 @@
     "extract-text-webpack-plugin": "^0.8.2",
     "graphiql": "^0.4.5",
     "graphql": "^0.4.14",
+    "graphql-tools": "^0.3.12",
     "history": "^1.17.0",
     "htmlparser2": "^3.9.0",
     "isomorphic-relay": "^0.4.2",
