@@ -2,7 +2,6 @@ import 'babel-polyfill';
 import '../scripts/scrollToPlugin.js';
 import React from 'react';
 import { render } from 'react-dom';
-// import { RelayRouter } from 'react-router-relay';
 import { Provider } from 'react-apollo';
 import { client } from './apollo';
 

@@ -2,6 +2,7 @@
 import WordExpressDatabase from './db';
 import WordExpressGraphQLSchema from './graphQLSchema';
 import { publicSettings, privateSettings } from '../settings/settings';
+import { generateSchema, addResolveFunctionsToSchema } from 'graphql-tools';
 
 const { name, username, password, host } = privateSettings.database;
 const { amazonS3, uploads } = publicSettings;
@@ -18,5 +19,4 @@ const connectionDetails = {
 const Database = new WordExpressDatabase(connectionDetails);
 const ConnQueries = Database.queries;
 const Schema = WordExpressGraphQLSchema(ConnQueries, publicSettings);
-
 export default Schema;

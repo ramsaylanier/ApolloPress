@@ -31,25 +31,10 @@ function setLayout(nextState, replaceState){
 }
 
 let routes = (
-  <Route
-    path="/" component={App}
-    queries={AppQueries}
-  >
-    <IndexRoute
-      onEnter={setLayout}
-      queries={AppQueries}
-    />
-
-    <Route
-      path=":page"
-      onEnter={setLayout}
-      queries={AppQueries}
-    />
-    <Route
-      path="post/:post"
-      component={PostSingle}
-      queries={AppQueries}
-    />
+  <Route path="/" component={App}>
+    <IndexRoute onEnter={setLayout} />
+    <Route path=":page" onEnter={setLayout} />
+    <Route path="post/:post" component={PostSingle} />
   </Route>
 );
 
