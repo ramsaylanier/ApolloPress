@@ -6,6 +6,7 @@ import { connect } from 'react-apollo';
 class FrontPageLayout extends React.Component{
 
 	render(){
+    console.log('front page render');
     const { loading } = this.props.page;
 
     if (loading){
@@ -13,16 +14,15 @@ class FrontPageLayout extends React.Component{
         <div>Loading...</div>
       )
     } else {
-
-      const { post_title, post_content, thumbnail} = this.props.page.result.viewer.page;
+      const { post_title, post_content, thumbnail} = this.props.page.viewer.page;
   		let bg = {
   			backgroundImage: "url('" + thumbnail + "')"
   		}
 
   		let heroClass = thumbnail ? "hero_thumbnail" : "hero"
-      
+
   		return (
-  			<Page>
+  			<div>
   				<div styleName={heroClass} style={bg}>
   					<div styleName="wrapper tight">
   						<h1 styleName="title">WordExpress</h1>
@@ -35,7 +35,7 @@ class FrontPageLayout extends React.Component{
   						<PostContent post_content={post_content}/>
   					</div>
   				</div>
-  			</Page>
+        </div>
   		)
     }
 	}

@@ -13,15 +13,11 @@ class PostList extends React.Component{
   }
 
   componentWillMount(){
-    const { limit, postType } = this.props.route.layout;
-    // this.props.relay.setVariables({
-    //   limit: limit,
-    //   postType: postType
-    // })
+    // const { limit, postType } = this.props.layout;
   }
 
   render(){
-
+    console.log('postList render:', this.props)
     const { loading } = this.props.page;
 
     if (loading){
@@ -33,7 +29,6 @@ class PostList extends React.Component{
       const { viewer } = this.props.page;
       const { posts } = viewer;
       const { hasNextPage, hasPreviousPage } = posts.pageInfo;
-      console.log(this.props);
 
       return(
         <Page>
@@ -46,15 +41,16 @@ class PostList extends React.Component{
           { hasNextPage &&
             <Button type="primary center" onClick={this._loadMorePosts}>Load More</Button>
           }
-
         </Page>
       )
     }
   }
 
   _loadMorePosts(){
-    const { limit, postType } = this.props.route.layout;
-    this.props.page.refetch({limit: 2});
+    // const { limit, postType } = this.props.layout;
+    const limit = this.props.page.viewer.posts.edges.length;
+    console.log(limit);
+    this.props.page.refetch({limit: limit + 1});
   }
 }
 
@@ -63,12 +59,8 @@ const PostListWithData = connect({
     return {
       page: {
         query: `
-          query getPage($postType: String, $limit: Int){
+          query getPosts($postType: String, $limit: Int){
             viewer{
-              page(post_name:"homepage"){
-      					id,
-      					thumbnail
-      				},
               posts(post_type: $postType first: $limit){
       					edges{
                   cursor
@@ -94,8 +86,8 @@ const PostListWithData = connect({
           }
         `,
         variables: {
-          postType: 'post',
-          limit: 1
+          postType: ownProps.route.layout.postType || 'post',
+          limit: ownProps.route.layout.limit || 1
         }
       }
     }

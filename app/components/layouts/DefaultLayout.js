@@ -10,7 +10,6 @@ import styles from '../pages/page.scss';
 class DefaultLayout extends React.Component{
 
   render(){
-    console.log(this.props);
     const { loading } = this.props.page;
 
     if (loading){
@@ -19,7 +18,7 @@ class DefaultLayout extends React.Component{
       )
     } else {
 
-      const { post_title, post_content, thumbnail } = this.props.page.result.viewer.page;
+      const { post_title, post_content, thumbnail } = this.props.page.viewer.page;
 
       let bg = {
         backgroundImage: "url('" + thumbnail + "')"
@@ -28,7 +27,7 @@ class DefaultLayout extends React.Component{
       let heroClass = thumbnail ? "hero_thumbnail" : "hero"
 
       return(
-      	<Page>
+        <Page>
           <div styleName={heroClass} style={bg}>
     				<div styleName="wrapper tight">
               <h2 styleName="title">{post_title}</h2>
@@ -63,7 +62,7 @@ const DefaultLayoutWithData = connect({
           }
         `,
         variables: {
-          page: ownProps.params.page
+          page: ownProps.params.page || 'homepage'
         }
       }
     }
