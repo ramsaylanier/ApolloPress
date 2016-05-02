@@ -12,21 +12,10 @@ class PostList extends React.Component{
     this._loadMorePosts = this._loadMorePosts.bind(this);
   }
 
-  componentWillMount(){
-    // const { limit, postType } = this.props.layout;
-  }
-
   render(){
-    console.log('postList render:', this.props)
-    const { loading } = this.props.page;
+    const { viewer } = this.props.page;
 
-    if (loading){
-      return(
-        <div></div>
-      )
-    } else {
-
-      const { viewer } = this.props.page;
+    if (viewer){
       const { posts } = viewer;
       const { hasNextPage, hasPreviousPage } = posts.pageInfo;
 
@@ -43,13 +32,15 @@ class PostList extends React.Component{
           }
         </Page>
       )
+    } else{
+      return(
+        <div>Loading...</div>
+      )
     }
   }
 
   _loadMorePosts(){
-    // const { limit, postType } = this.props.layout;
     const limit = this.props.page.viewer.posts.edges.length;
-    console.log(limit);
     this.props.page.refetch({limit: limit + 1});
   }
 }
